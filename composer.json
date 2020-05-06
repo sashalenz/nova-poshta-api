@@ -1,0 +1,40 @@
+{
+  "name": "sashalenz/nova-poshta-api",
+  "description": "Nova Poshta API",
+  "homepage": "https://github.com/sashalenz/nova-poshta-api",
+  "keywords": [
+    "novaposhta",
+    "nova poshta",
+    "api",
+    "laravel"
+  ],
+  "authors": [
+    {
+      "name": "Petrovskyi Oleksandr",
+      "email": "sashalenz@gmail.com",
+      "homepage": "https://github.com/sashalenz",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": "^7.4",
+    "illuminate/config": "^7.0",
+    "illuminate/support": "^7.0",
+    "illuminate/http": "^7.0",
+    "spatie/data-transfer-object": "^2.0"
+  },
+  "require-dev": {
+    "ext-json": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Sashalenz\\NovaPoshtaApi\\": "src"
+    }
+  },
+  "license": "MIT",
+  "config": {
+    "sort-packages": true
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}
