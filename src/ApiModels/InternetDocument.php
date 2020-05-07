@@ -1,17 +1,17 @@
 <?php
 
-namespace A20\Services\NovaPoshta\ApiModels;
+namespace Sashalenz\NovaPoshtaApi\ApiModels;
 
-use A20\Services\NovaPoshta\BaseModel;
-use A20\Services\NovaPoshta\DataTransferObjects\InternetDocument\DocumentData;
-use A20\Services\NovaPoshta\DataTransferObjects\InternetDocument\DocumentDeliveryDateData;
-use A20\Services\NovaPoshta\DataTransferObjects\InternetDocument\DocumentListData;
-use A20\Services\NovaPoshta\DataTransferObjects\InternetDocument\DocumentPriceData;
-use A20\Services\NovaPoshta\Exceptions\NovaPoshtaException;
-use A20\Services\NovaPoshta\Rules\CargoTypeRule;
-use A20\Services\NovaPoshta\Rules\PayerTypeRule;
-use A20\Services\NovaPoshta\Rules\PaymentMethodRule;
-use A20\Services\NovaPoshta\Rules\ServiceTypeRule;
+use Sashalenz\NovaPoshtaApi\BaseModel;
+use Sashalenz\NovaPoshtaApi\DataTransferObjects\InternetDocument\DocumentData;
+use Sashalenz\NovaPoshtaApi\DataTransferObjects\InternetDocument\DocumentDeliveryDateData;
+use Sashalenz\NovaPoshtaApi\DataTransferObjects\InternetDocument\DocumentListData;
+use Sashalenz\NovaPoshtaApi\DataTransferObjects\InternetDocument\DocumentPriceData;
+use Sashalenz\NovaPoshtaApi\Exceptions\NovaPoshtaException;
+use Sashalenz\NovaPoshtaApi\Rules\CargoTypeRule;
+use Sashalenz\NovaPoshtaApi\Rules\PayerTypeRule;
+use Sashalenz\NovaPoshtaApi\Rules\PaymentMethodRule;
+use Sashalenz\NovaPoshtaApi\Rules\ServiceTypeRule;
 use Illuminate\Support\Collection;
 
 final class InternetDocument extends BaseModel

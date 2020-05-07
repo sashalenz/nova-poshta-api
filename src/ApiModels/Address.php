@@ -1,15 +1,15 @@
 <?php
 
-namespace A20\Services\NovaPoshta\ApiModels;
+namespace Sashalenz\NovaPoshtaApi\ApiModels;
 
-use A20\Services\NovaPoshta\BaseModel;
-use A20\Services\NovaPoshta\DataTransferObjects\Address\AddressData;
-use A20\Services\NovaPoshta\DataTransferObjects\Address\CityData;
-use A20\Services\NovaPoshta\DataTransferObjects\Address\SettlementData;
-use A20\Services\NovaPoshta\DataTransferObjects\Address\SettlementStreetData;
-use A20\Services\NovaPoshta\DataTransferObjects\Address\StreetData;
-use A20\Services\NovaPoshta\DataTransferObjects\Address\WarehouseData;
-use A20\Services\NovaPoshta\Exceptions\NovaPoshtaException;
+use Sashalenz\NovaPoshtaApi\BaseModel;
+use Sashalenz\NovaPoshtaApi\DataTransferObjects\Address\AddressData;
+use Sashalenz\NovaPoshtaApi\DataTransferObjects\Address\CityData;
+use Sashalenz\NovaPoshtaApi\DataTransferObjects\Address\SettlementData;
+use Sashalenz\NovaPoshtaApi\DataTransferObjects\Address\SettlementStreetData;
+use Sashalenz\NovaPoshtaApi\DataTransferObjects\Address\StreetData;
+use Sashalenz\NovaPoshtaApi\DataTransferObjects\Address\WarehouseData;
+use Sashalenz\NovaPoshtaApi\Exceptions\NovaPoshtaException;
 use Illuminate\Support\Collection;
 
 final class Address extends BaseModel

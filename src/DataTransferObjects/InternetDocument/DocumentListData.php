@@ -1,8 +1,8 @@
 <?php
 
-namespace A20\Services\NovaPoshta\DataTransferObjects\InternetDocument;
+namespace Sashalenz\NovaPoshtaApi\DataTransferObjects\InternetDocument;
 
-use A20\Services\NovaPoshta\DataTransferObjects\DataTransferObject;
+use Sashalenz\NovaPoshtaApi\DataTransferObjects\DataTransferObject;
 use Carbon\Carbon;
 
 class DocumentListData extends DataTransferObject

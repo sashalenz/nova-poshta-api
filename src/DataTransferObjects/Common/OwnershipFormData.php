@@ -1,8 +1,8 @@
 <?php
 
-namespace A20\Services\NovaPoshta\DataTransferObjects\Common;
+namespace Sashalenz\NovaPoshtaApi\DataTransferObjects\Common;
 
-use A20\Services\NovaPoshta\DataTransferObjects\DataTransferObject;
+use Sashalenz\NovaPoshtaApi\DataTransferObjects\DataTransferObject;
 
 class OwnershipFormData extends DataTransferObject
 {

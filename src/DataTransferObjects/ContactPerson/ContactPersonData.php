@@ -1,8 +1,8 @@
 <?php
 
-namespace A20\Services\NovaPoshta\DataTransferObjects\ContactPerson;
+namespace Sashalenz\NovaPoshtaApi\DataTransferObjects\ContactPerson;
 
-use A20\Services\NovaPoshta\DataTransferObjects\DataTransferObject;
+use Sashalenz\NovaPoshtaApi\DataTransferObjects\DataTransferObject;
 
 class ContactPersonData extends DataTransferObject
 {

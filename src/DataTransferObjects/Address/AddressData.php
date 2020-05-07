@@ -1,8 +1,8 @@
 <?php
 
-namespace A20\Services\NovaPoshta\DataTransferObjects\Address;
+namespace Sashalenz\NovaPoshtaApi\DataTransferObjects\Address;
 
-use A20\Services\NovaPoshta\DataTransferObjects\DataTransferObject;
+use Sashalenz\NovaPoshtaApi\DataTransferObjects\DataTransferObject;
 
 class AddressData extends DataTransferObject
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace A20\Services\NovaPoshta\Rules;
+namespace Sashalenz\NovaPoshtaApi\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace A20\Services\NovaPoshta\DataTransferObjects;
+namespace Sashalenz\NovaPoshtaApi\DataTransferObjects;
 
 use Illuminate\Support\Collection;
 use Spatie\DataTransferObject\FlexibleDataTransferObject;

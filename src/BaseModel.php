@@ -1,8 +1,8 @@
 <?php
 
-namespace A20\Services\NovaPoshta;
+namespace Sashalenz\NovaPoshtaApi;
 
-use A20\Services\NovaPoshta\Exceptions\NovaPoshtaException;
+use Sashalenz\NovaPoshtaApi\Exceptions\NovaPoshtaException;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Validator;
