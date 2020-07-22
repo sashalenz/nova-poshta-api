@@ -1,10 +1,10 @@
 <?php
 
-namespace Sashalenz\NovaPoshtaApi\Rules;
+namespace Sashalenz\NovaPoshta\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
 
-final class PaymentMethodRule implements Rule
+class PaymentMethodRule implements Rule
 {
     /**
      * Determine if the validation rule passes.

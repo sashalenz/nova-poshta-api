@@ -1,10 +1,10 @@
 <?php
 
-namespace Sashalenz\NovaPoshtaApi\Rules;
+namespace Sashalenz\NovaPoshta\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
 
-final class PayerTypeRule implements Rule
+class PayerTypeRule implements Rule
 {
     /**
      * Determine if the validation rule passes.

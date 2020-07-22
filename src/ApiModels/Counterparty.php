@@ -1,13 +1,13 @@
 <?php
 
-namespace Sashalenz\NovaPoshtaApi\ApiModels;
+namespace Sashalenz\NovaPoshta\ApiModels;
 
-use Sashalenz\NovaPoshtaApi\BaseModel;
-use Sashalenz\NovaPoshtaApi\DataTransferObjects\ContactPerson\ContactPersonData;
-use Sashalenz\NovaPoshtaApi\DataTransferObjects\Counterparty\AddressData;
-use Sashalenz\NovaPoshtaApi\DataTransferObjects\Counterparty\CounterpartyData;
-use Sashalenz\NovaPoshtaApi\Exceptions\NovaPoshtaException;
-use Sashalenz\NovaPoshtaApi\Rules\CounterpartyTypeRule;
+use Sashalenz\NovaPoshta\BaseModel;
+use Sashalenz\NovaPoshta\DataTransferObjects\ContactPerson\ContactPersonData;
+use Sashalenz\NovaPoshta\DataTransferObjects\Counterparty\AddressData;
+use Sashalenz\NovaPoshta\DataTransferObjects\Counterparty\CounterpartyData;
+use Sashalenz\NovaPoshta\Exceptions\NovaPoshtaException;
+use Sashalenz\NovaPoshta\Rules\CounterpartyTypeRule;
 use Illuminate\Support\Collection;
 
 final class Counterparty extends BaseModel
@@ -17,9 +17,9 @@ final class Counterparty extends BaseModel
     public string $counterpartyProperty = 'Recipient';
     public string $firstName;
     public string $lastName;
-    public string $middleName;
+    public ?string $middleName = null;
+    public ?string $email = null;
     public string $phone;
-    public string $email;
     public int $page;
 
     /**
@@ -100,10 +100,10 @@ final class Counterparty extends BaseModel
     }
 
     /**
-     * @param string $middleName
+     * @param string|null $middleName
      * @return $this
      */
-    public function setMiddleName(string $middleName) : self
+    public function setMiddleName(?string $middleName = null) : self
     {
         $this->middleName = $middleName;
 
@@ -184,7 +184,7 @@ final class Counterparty extends BaseModel
             'Phone' => ['required_if:CounterpartyType,PrivatePerson', 'string', 'max:36'],
             'Email' => ['nullable', 'email'],
             'CounterpartyType' => ['required', 'string', new CounterpartyTypeRule()],
-            'OwnershipForm' => ['required', 'string']
+            'OwnershipForm' => ['required_if:CounterpartyType,Organization', 'string']
         ]);
 
         $contactPerson = $this

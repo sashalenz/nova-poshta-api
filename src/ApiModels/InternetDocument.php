@@ -1,17 +1,17 @@
 <?php
 
-namespace Sashalenz\NovaPoshtaApi\ApiModels;
+namespace Sashalenz\NovaPoshta\ApiModels;
 
-use Sashalenz\NovaPoshtaApi\BaseModel;
-use Sashalenz\NovaPoshtaApi\DataTransferObjects\InternetDocument\DocumentData;
-use Sashalenz\NovaPoshtaApi\DataTransferObjects\InternetDocument\DocumentDeliveryDateData;
-use Sashalenz\NovaPoshtaApi\DataTransferObjects\InternetDocument\DocumentListData;
-use Sashalenz\NovaPoshtaApi\DataTransferObjects\InternetDocument\DocumentPriceData;
-use Sashalenz\NovaPoshtaApi\Exceptions\NovaPoshtaException;
-use Sashalenz\NovaPoshtaApi\Rules\CargoTypeRule;
-use Sashalenz\NovaPoshtaApi\Rules\PayerTypeRule;
-use Sashalenz\NovaPoshtaApi\Rules\PaymentMethodRule;
-use Sashalenz\NovaPoshtaApi\Rules\ServiceTypeRule;
+use Sashalenz\NovaPoshta\BaseModel;
+use Sashalenz\NovaPoshta\DataTransferObjects\InternetDocument\DocumentData;
+use Sashalenz\NovaPoshta\DataTransferObjects\InternetDocument\DocumentDeliveryDateData;
+use Sashalenz\NovaPoshta\DataTransferObjects\InternetDocument\DocumentListData;
+use Sashalenz\NovaPoshta\DataTransferObjects\InternetDocument\DocumentPriceData;
+use Sashalenz\NovaPoshta\Exceptions\NovaPoshtaException;
+use Sashalenz\NovaPoshta\Rules\CargoTypeRule;
+use Sashalenz\NovaPoshta\Rules\PayerTypeRule;
+use Sashalenz\NovaPoshta\Rules\PaymentMethodRule;
+use Sashalenz\NovaPoshta\Rules\ServiceTypeRule;
 use Illuminate\Support\Collection;
 
 final class InternetDocument extends BaseModel
@@ -30,12 +30,12 @@ final class InternetDocument extends BaseModel
     public string $recipientsPhone;
 
 //    public string $recipientWarehouse;
-
-    public int $weight;
+    public float $weight;
     public string $serviceType;
     public int $cost;
     public string $cargoType;
     public string $seatsAmount;
+    public array $optionsSeat;
     public array $packCalculate;
     public array $redeliveryCalculate;
     public int $packCount;
@@ -51,6 +51,8 @@ final class InternetDocument extends BaseModel
     public string $payerType;
     public string $paymentMethod;
     public string $description;
+    public array $backwardDeliveryData;
+    public array $documentRefs;
 
     /**
      * @param string $citySender
@@ -75,10 +77,10 @@ final class InternetDocument extends BaseModel
     }
 
     /**
-     * @param int $weight
+     * @param float $weight
      * @return $this
      */
-    public function setWeight(int $weight) : self
+    public function setWeight(float $weight) : self
     {
         $this->weight = $weight;
 
@@ -93,6 +95,46 @@ final class InternetDocument extends BaseModel
     {
         $this->serviceType = $serviceType;
 
+        return $this;
+    }
+
+    /**
+     * @param string $sender
+     * @return InternetDocument
+     */
+    public function setSender(string $sender): self
+    {
+        $this->sender = $sender;
+        return $this;
+    }
+
+    /**
+     * @param string $senderAddress
+     * @return InternetDocument
+     */
+    public function setSenderAddress(string $senderAddress): self
+    {
+        $this->senderAddress = $senderAddress;
+        return $this;
+    }
+
+    /**
+     * @param string $contactSender
+     * @return InternetDocument
+     */
+    public function setContactSender(string $contactSender): self
+    {
+        $this->contactSender = $contactSender;
+        return $this;
+    }
+
+    /**
+     * @param string $sendersPhone
+     * @return InternetDocument
+     */
+    public function setSendersPhone(string $sendersPhone): self
+    {
+        $this->sendersPhone = $sendersPhone;
         return $this;
     }
 
@@ -163,10 +205,10 @@ final class InternetDocument extends BaseModel
     }
 
     /**
-     * @param int $dateTime
+     * @param string $dateTime
      * @return $this
      */
-    public function setDateTime(int $dateTime) : self
+    public function setDateTime(string $dateTime) : self
     {
         $this->dateTime = $dateTime;
 
@@ -261,7 +303,83 @@ final class InternetDocument extends BaseModel
         return $this;
     }
 
+    /**
+     * @param string $recipient
+     * @return InternetDocument
+     */
+    public function setRecipient(string $recipient): self
+    {
+        $this->recipient = $recipient;
+        return $this;
+    }
 
+    /**
+     * @param string $contactRecipient
+     * @return InternetDocument
+     */
+    public function setContactRecipient(string $contactRecipient): self
+    {
+        $this->contactRecipient = $contactRecipient;
+        return $this;
+    }
+
+    /**
+     * @param string $recipientAddress
+     * @return InternetDocument
+     */
+    public function setRecipientAddress(string $recipientAddress): self
+    {
+        $this->recipientAddress = $recipientAddress;
+        return $this;
+    }
+
+    /**
+     * @param string $recipientsPhone
+     * @return InternetDocument
+     */
+    public function setRecipientsPhone(string $recipientsPhone): self
+    {
+        $this->recipientsPhone = $recipientsPhone;
+        return $this;
+    }
+
+    /**
+     * @param string $documentRef
+     * @return $this
+     */
+    public function setDocumentRef(string $documentRef): self
+    {
+        $this->documentRefs[] = $documentRef;
+        return $this;
+    }
+
+    /**
+     * @param array $optionsSeat
+     * @return $this
+     */
+    public function setOptionsSeat(array $optionsSeat): self
+    {
+        $this->optionsSeat = $optionsSeat;
+        return $this;
+    }
+
+    public function setBackwardDeliveryData(BackwardDeliveryData $backwardDeliveryData): self
+    {
+        $this->backwardDeliveryData[] = $backwardDeliveryData->toArray();
+        return $this;
+    }
+
+    public function addRedeliveryCost(int $redeliveryCost, string $payerType = 'Recipient'): self
+    {
+        $this->setBackwardDeliveryData(
+            BackwardDeliveryData::make()
+                ->setPayerType($payerType)
+                ->setCargoType('Money')
+                ->setRedeliveryString($redeliveryCost)
+        );
+
+        return $this;
+    }
 
     /**
      * @return DocumentPriceData
@@ -345,7 +463,7 @@ final class InternetDocument extends BaseModel
             'ServiceType' => ['required', 'string', new ServiceTypeRule()],
             'SeatsAmount' => ['required', 'numeric', 'min:1'],
             'Description' => ['required', 'string', 'max:50'],
-            'Cost' => ['required', 'numeric', 'min:300'],
+            'Cost' => ['required', 'numeric', 'min:200'],
             'CitySender' => ['required', 'uuid'],
             'Sender' => ['required', 'uuid'],
             'SenderAddress' => ['required', 'uuid'],
@@ -356,6 +474,23 @@ final class InternetDocument extends BaseModel
             'RecipientAddress' => ['required', 'uuid'],
             'ContactRecipient' => ['required', 'uuid'],
             'RecipientsPhone' => ['required', 'string', 'max:36']
+        ]);
+
+        $document = $this
+            ->setCalledMethod(__FUNCTION__)
+            ->request()
+            ->first();
+
+        return DocumentData::fromArray($document);
+    }
+
+    /**
+     * @throws NovaPoshtaException
+     */
+    public function delete()
+    {
+        $this->validate([
+            'DocumentRefs.*' => ['required', 'uuid']
         ]);
 
         $document = $this

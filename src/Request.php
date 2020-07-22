@@ -1,19 +1,18 @@
 <?php
 
-namespace Sashalenz\NovaPoshtaApi;
+namespace Sashalenz\NovaPoshta;
 
-use Sashalenz\NovaPoshtaApi\Exceptions\NovaPoshtaException;
-use Illuminate\Support\Facades\Cache;
+use Sashalenz\NovaPoshta\Exceptions\NovaPoshtaException;
+use Cache;
 use Illuminate\Http\Client\RequestException;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Http;
 
 class Request
 {
-    const TIMEOUT = 3;
-    const RETRY_TIMES = 3;
-    const RETRY_SLEEP = 100;
+    private const TIMEOUT = 3;
+    private const RETRY_TIMES = 3;
+    private const RETRY_SLEEP = 100;
 
     private string $apiKey;
     private string $calledMethod;
@@ -53,7 +52,7 @@ class Request
 
             $response = Http::timeout(self::TIMEOUT)
                 ->retry(self::RETRY_TIMES, self::RETRY_SLEEP)
-                ->post(Config::get('services.novaposhta.url'), $requestParams)
+                ->post(config('services.novaposhta.url'), $requestParams)
                 ->throw();
         } catch (RequestException $e) {
             throw new NovaPoshtaException('Request error. '.$e->getMessage());
@@ -70,6 +69,12 @@ class Request
         if (!isset($response['data'])) {
             throw new NovaPoshtaException('API response data not found.');
         }
+
+        if (!empty($response['warnings'])) {
+            info($response['warnings']);
+        }
+
+        info($response['data']);
 
         return collect($response['data']);
     }

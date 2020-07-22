@@ -1,9 +1,9 @@
 <?php
 
-namespace Sashalenz\NovaPoshtaApi\DataTransferObjects\Counterparty;
+namespace Sashalenz\NovaPoshta\DataTransferObjects\Counterparty;
 
-use Sashalenz\NovaPoshtaApi\DataTransferObjects\ContactPerson\ContactPersonData;
-use Sashalenz\NovaPoshtaApi\DataTransferObjects\DataTransferObject;
+use Sashalenz\NovaPoshta\DataTransferObjects\ContactPerson\ContactPersonData;
+use Sashalenz\NovaPoshta\DataTransferObjects\DataTransferObject;
 
 class CounterpartyData extends DataTransferObject
 {

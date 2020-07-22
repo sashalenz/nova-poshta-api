@@ -1,8 +1,8 @@
 <?php
 
-namespace Sashalenz\NovaPoshtaApi\DataTransferObjects\InternetDocument;
+namespace Sashalenz\NovaPoshta\DataTransferObjects\InternetDocument;
 
-use Sashalenz\NovaPoshtaApi\DataTransferObjects\DataTransferObject;
+use Sashalenz\NovaPoshta\DataTransferObjects\DataTransferObject;
 
 class DocumentPriceData extends DataTransferObject
 {

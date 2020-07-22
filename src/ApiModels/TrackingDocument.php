@@ -1,10 +1,10 @@
 <?php
 
-namespace Sashalenz\NovaPoshtaApi\ApiModels;
+namespace Sashalenz\NovaPoshta\ApiModels;
 
-use Sashalenz\NovaPoshtaApi\BaseModel;
-use Sashalenz\NovaPoshtaApi\DataTransferObjects\InternetDocument\StatusDocumentData;
-use Sashalenz\NovaPoshtaApi\Exceptions\NovaPoshtaException;
+use Sashalenz\NovaPoshta\BaseModel;
+use Sashalenz\NovaPoshta\DataTransferObjects\InternetDocument\StatusDocumentData;
+use Sashalenz\NovaPoshta\Exceptions\NovaPoshtaException;
 use Illuminate\Support\Collection;
 
 final class TrackingDocument extends BaseModel

@@ -1,14 +1,14 @@
 <?php
 
-namespace Sashalenz\NovaPoshtaApi;
+namespace Sashalenz\NovaPoshta;
 
-use Sashalenz\NovaPoshtaApi\Exceptions\NovaPoshtaException;
+use Sashalenz\NovaPoshta\Exceptions\NovaPoshtaException;
+use Closure;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\Config;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Str;
 use ReflectionClass;
 use ReflectionException;
+use Str;
+use Validator;
 
 abstract class BaseModel
 {
@@ -21,9 +21,10 @@ abstract class BaseModel
 
     /**
      * BaseModel constructor.
+     * @param string|null $apiKey
      * @throws NovaPoshtaException
      */
-    public function __construct()
+    public function __construct(?string $apiKey = null)
     {
         try {
             $class = new ReflectionClass($this);
@@ -31,7 +32,8 @@ abstract class BaseModel
         } catch (ReflectionException $e) {
             throw new NovaPoshtaException($e->getMessage());
         }
-        $this->apiKey = Config::get('services.novaposhta.key');
+
+        $this->apiKey = $apiKey ?? config('services.novaposhta.key');
     }
 
     /**
@@ -68,6 +70,15 @@ abstract class BaseModel
         return $this;
     }
 
+    public function when(bool $condition, Closure $callback) : self
+    {
+        if ($condition) {
+            return $callback($this) ?: $this;
+        }
+
+        return $this;
+    }
+
     /**
      * @return Collection
      */
@@ -76,7 +87,9 @@ abstract class BaseModel
         $properties = array_diff_key(get_object_vars($this), get_class_vars(get_parent_class($this)));
 
         return collect($properties)
-            ->mapWithKeys(fn ($property, $key) => [Str::ucfirst($key) => $property]);
+            ->mapWithKeys(fn ($property, $key) => [
+                Str::ucfirst($key) => $property
+            ]);
     }
 
     /**
@@ -105,5 +118,15 @@ abstract class BaseModel
         }
 
         return $request->make();
+    }
+
+    /**
+     * @param string|null $apiKey
+     * @return static
+     * @throws NovaPoshtaException
+     */
+    public static function make(?string $apiKey = null)
+    {
+        return new static($apiKey);
     }
 }

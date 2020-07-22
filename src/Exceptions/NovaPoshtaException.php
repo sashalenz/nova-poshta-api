@@ -1,6 +1,6 @@
 <?php
 
-namespace Sashalenz\NovaPoshtaApi\Exceptions;
+namespace Sashalenz\NovaPoshta\Exceptions;
 
 use Exception;
 

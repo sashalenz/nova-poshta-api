@@ -1,10 +1,10 @@
 <?php
 
-namespace Sashalenz\NovaPoshtaApi\ApiModels;
+namespace Sashalenz\NovaPoshta\ApiModels;
 
-use Sashalenz\NovaPoshtaApi\BaseModel;
-use Sashalenz\NovaPoshtaApi\DataTransferObjects\ContactPerson\ContactPersonData;
-use Sashalenz\NovaPoshtaApi\Exceptions\NovaPoshtaException;
+use Sashalenz\NovaPoshta\BaseModel;
+use Sashalenz\NovaPoshta\DataTransferObjects\ContactPerson\ContactPersonData;
+use Sashalenz\NovaPoshta\Exceptions\NovaPoshtaException;
 
 final class ContactPerson extends BaseModel
 {
