@@ -1,8 +1,8 @@
 <?php
 
-namespace Sashalenz\NovaPoshta\DataTransferObjects\ScanSheet;
+namespace Sashalenz\NovaPoshtaApi\DataTransferObjects\ScanSheet;
 
-use Sashalenz\NovaPoshta\DataTransferObjects\DataTransferObject;
+use Sashalenz\NovaPoshtaApi\DataTransferObjects\DataTransferObject;
 use Carbon\Carbon;
 
 class ScanSheetData extends DataTransferObject

@@ -1,13 +1,13 @@
 <?php
 
-namespace Sashalenz\NovaPoshta\ApiModels;
+namespace Sashalenz\NovaPoshtaApi\ApiModels;
 
-use Sashalenz\NovaPoshta\BaseModel;
-use Sashalenz\NovaPoshta\DataTransferObjects\ContactPerson\ContactPersonData;
-use Sashalenz\NovaPoshta\DataTransferObjects\Counterparty\AddressData;
-use Sashalenz\NovaPoshta\DataTransferObjects\Counterparty\CounterpartyData;
-use Sashalenz\NovaPoshta\Exceptions\NovaPoshtaException;
-use Sashalenz\NovaPoshta\Rules\CounterpartyTypeRule;
+use Sashalenz\NovaPoshtaApi\BaseModel;
+use Sashalenz\NovaPoshtaApi\DataTransferObjects\ContactPerson\ContactPersonData;
+use Sashalenz\NovaPoshtaApi\DataTransferObjects\Counterparty\AddressData;
+use Sashalenz\NovaPoshtaApi\DataTransferObjects\Counterparty\CounterpartyData;
+use Sashalenz\NovaPoshtaApi\Exceptions\NovaPoshtaException;
+use Sashalenz\NovaPoshtaApi\Rules\CounterpartyTypeRule;
 use Illuminate\Support\Collection;
 
 final class Counterparty extends BaseModel

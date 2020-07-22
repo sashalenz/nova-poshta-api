@@ -1,11 +1,11 @@
 <?php
 
-namespace Sashalenz\NovaPoshta\ApiModels;
+namespace Sashalenz\NovaPoshtaApi\ApiModels;
 
-use Sashalenz\NovaPoshta\BaseModel;
-use Sashalenz\NovaPoshta\DataTransferObjects\Common\OwnershipFormData;
-use Sashalenz\NovaPoshta\DataTransferObjects\Common\ServiceTypeData;
-use Sashalenz\NovaPoshta\Exceptions\NovaPoshtaException;
+use Sashalenz\NovaPoshtaApi\BaseModel;
+use Sashalenz\NovaPoshtaApi\DataTransferObjects\Common\OwnershipFormData;
+use Sashalenz\NovaPoshtaApi\DataTransferObjects\Common\ServiceTypeData;
+use Sashalenz\NovaPoshtaApi\Exceptions\NovaPoshtaException;
 use Illuminate\Support\Collection;
 
 final class Common extends BaseModel

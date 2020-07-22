@@ -1,15 +1,15 @@
 <?php
 
-namespace Sashalenz\NovaPoshta\ApiModels;
+namespace Sashalenz\NovaPoshtaApi\ApiModels;
 
-use Sashalenz\NovaPoshta\BaseModel;
-use Sashalenz\NovaPoshta\DataTransferObjects\Address\AddressData;
-use Sashalenz\NovaPoshta\DataTransferObjects\Address\CityData;
-use Sashalenz\NovaPoshta\DataTransferObjects\Address\SettlementData;
-use Sashalenz\NovaPoshta\DataTransferObjects\Address\SettlementStreetData;
-use Sashalenz\NovaPoshta\DataTransferObjects\Address\StreetData;
-use Sashalenz\NovaPoshta\DataTransferObjects\Address\WarehouseData;
-use Sashalenz\NovaPoshta\Exceptions\NovaPoshtaException;
+use Sashalenz\NovaPoshtaApi\BaseModel;
+use Sashalenz\NovaPoshtaApi\DataTransferObjects\Address\AddressData;
+use Sashalenz\NovaPoshtaApi\DataTransferObjects\Address\CityData;
+use Sashalenz\NovaPoshtaApi\DataTransferObjects\Address\SettlementData;
+use Sashalenz\NovaPoshtaApi\DataTransferObjects\Address\SettlementStreetData;
+use Sashalenz\NovaPoshtaApi\DataTransferObjects\Address\StreetData;
+use Sashalenz\NovaPoshtaApi\DataTransferObjects\Address\WarehouseData;
+use Sashalenz\NovaPoshtaApi\Exceptions\NovaPoshtaException;
 use Illuminate\Support\Collection;
 
 final class Address extends BaseModel

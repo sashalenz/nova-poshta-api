@@ -1,8 +1,8 @@
 <?php
 
-namespace Sashalenz\NovaPoshta\DataTransferObjects\InternetDocument;
+namespace Sashalenz\NovaPoshtaApi\DataTransferObjects\InternetDocument;
 
-use Sashalenz\NovaPoshta\DataTransferObjects\DataTransferObject;
+use Sashalenz\NovaPoshtaApi\DataTransferObjects\DataTransferObject;
 use Carbon\Carbon;
 
 class StatusDocumentData extends DataTransferObject

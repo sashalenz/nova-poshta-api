@@ -1,8 +1,8 @@
 <?php
 
-namespace Sashalenz\NovaPoshta;
+namespace Sashalenz\NovaPoshtaApi;
 
-use Sashalenz\NovaPoshta\Exceptions\NovaPoshtaException;
+use Sashalenz\NovaPoshtaApi\Exceptions\NovaPoshtaException;
 use Cache;
 use Illuminate\Http\Client\RequestException;
 use Illuminate\Support\Collection;

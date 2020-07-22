@@ -1,8 +1,8 @@
 <?php
 
-namespace Sashalenz\NovaPoshta\DataTransferObjects\Counterparty;
+namespace Sashalenz\NovaPoshtaApi\DataTransferObjects\Counterparty;
 
-use Sashalenz\NovaPoshta\DataTransferObjects\DataTransferObject;
+use Sashalenz\NovaPoshtaApi\DataTransferObjects\DataTransferObject;
 
 class AddressData extends DataTransferObject
 {

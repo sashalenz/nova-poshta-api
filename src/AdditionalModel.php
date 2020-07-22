@@ -1,6 +1,6 @@
 <?php
 
-namespace Sashalenz\NovaPoshta;
+namespace Sashalenz\NovaPoshtaApi;
 
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
