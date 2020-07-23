@@ -21,6 +21,8 @@ final class Counterparty extends BaseModel
     public ?string $email = null;
     public string $phone;
     public int $page;
+    public ?string $cityRef = null;
+    public ?string $ownershipForm = null;
 
     /**
      * @param string $page
@@ -117,6 +119,28 @@ final class Counterparty extends BaseModel
     public function setEmail(string $email) : self
     {
         $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * @param string $ownershipForm
+     * @return $this
+     */
+    public function setOwnershipForm(string $ownershipForm) : self
+    {
+        $this->ownershipForm = $ownershipForm;
+
+        return $this;
+    }
+
+    /**
+     * @param string $cityRef
+     * @return $this
+     */
+    public function setCityRef(string $cityRef) : self
+    {
+        $this->cityRef = $cityRef;
 
         return $this;
     }
