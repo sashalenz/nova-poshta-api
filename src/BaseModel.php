@@ -20,7 +20,9 @@ abstract class BaseModel
     protected int $cacheSeconds = -1;
 
     /**
-     *
+     * BaseModel constructor.
+     * @param string|null $apiKey
+     * @throws NovaPoshtaException
      */
     public function __construct(?string $apiKey = null)
     {

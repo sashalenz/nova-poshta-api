@@ -16,13 +16,14 @@ final class Counterparty extends BaseModel
     public string $counterpartyType;
     public string $counterpartyProperty = 'Recipient';
     public string $firstName;
-    public string $lastName;
+    public ?string $lastName = null;
     public ?string $middleName = null;
     public ?string $email = null;
     public string $phone;
     public int $page;
     public ?string $cityRef = null;
     public ?string $ownershipForm = null;
+    public ?int $EDRPOU = null;
 
     /**
      * @param string $page
@@ -146,6 +147,17 @@ final class Counterparty extends BaseModel
     }
 
     /**
+     * @param int $EDRPOU
+     * @return $this
+     */
+    public function setEDRPOU(int $EDRPOU) : self
+    {
+        $this->EDRPOU = $EDRPOU;
+
+        return $this;
+    }
+
+    /**
      * @return Collection
      * @throws NovaPoshtaException
      */
@@ -203,11 +215,12 @@ final class Counterparty extends BaseModel
     {
         $this->validate([
             'FirstName' => ['required', 'string', 'max:36'],
-            'LastName' => ['required_if:CounterpartyType,PrivatePerson', 'string', 'max:36'],
+            'LastName' => ['required_if:CounterpartyType,PrivatePerson', 'nullable', 'string', 'max:36'],
             'MiddleName' => ['nullable', 'string', 'max:36'],
             'Phone' => ['required_if:CounterpartyType,PrivatePerson', 'string', 'max:36'],
             'Email' => ['nullable', 'email'],
             'CounterpartyType' => ['required', 'string', new CounterpartyTypeRule()],
+            'EDRPOU' => ['required_if:CounterpartyType,Organization', 'nullable', 'numeric'],
             'OwnershipForm' => ['required_if:CounterpartyType,Organization', 'string']
         ]);
 

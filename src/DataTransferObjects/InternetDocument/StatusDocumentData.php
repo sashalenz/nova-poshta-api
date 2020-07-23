@@ -9,7 +9,7 @@ class StatusDocumentData extends DataTransferObject
 {
     public string $number;
     public bool $redelivery;
-    public int $redeliverySum;
+    public ?int $redeliverySum = null;
     public ?Carbon $dateCreated = null;
     public ?float $documentWeight = null;
     public ?int $documentCost = null;
@@ -27,7 +27,7 @@ class StatusDocumentData extends DataTransferObject
         return new self([
             'number' => $array['Number'],
             'redelivery' => array_key_exists('Redelivery', $array) ? (bool) $array['Redelivery'] : false,
-            'redeliverySum' => (int) $array['RedeliverySum'],
+            'redeliverySum' =>  array_key_exists('RedeliverySum', $array) ? (int) $array['RedeliverySum'] : null,
             'dateCreated' => array_key_exists('DateCreated', $array) && $array['DateCreated'] !== '' ? Carbon::createFromFormat('d-m-Y H:i:s', $array['DateCreated']) : null,
             'documentWeight' => array_key_exists('DocumentWeight', $array) ? (float) $array['DocumentWeight'] : null,
             'documentCost' => array_key_exists('DocumentCost', $array) ? (int) $array['DocumentCost'] : null,
