@@ -221,7 +221,7 @@ final class Counterparty extends BaseModel
             'Email' => ['nullable', 'email'],
             'CounterpartyType' => ['required', 'string', new CounterpartyTypeRule()],
             'EDRPOU' => ['required_if:CounterpartyType,Organization', 'nullable', 'numeric'],
-            'OwnershipForm' => ['required_if:CounterpartyType,Organization', 'string']
+            'OwnershipForm' => ['required_if:CounterpartyType,Organization', 'nullable', 'string']
         ]);
 
         $contactPerson = $this

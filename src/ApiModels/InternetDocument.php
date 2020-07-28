@@ -36,12 +36,12 @@ final class InternetDocument extends BaseModel
     public string $cargoType;
     public string $seatsAmount;
     public array $optionsSeat;
+    public array $cargoDetails;
     public array $packCalculate;
     public array $redeliveryCalculate;
     public int $packCount;
     public int $packRef;
     public int $amount;
-    public string $cargoDetails;
     public string $dateTime;
     public string $dateTimeFrom;
     public string $dateTimeTo;
@@ -363,6 +363,16 @@ final class InternetDocument extends BaseModel
         return $this;
     }
 
+    /**
+     * @param array $cargoDetails
+     * @return $this
+     */
+    public function setCargoDetails(array $cargoDetails): self
+    {
+        $this->cargoDetails = $cargoDetails;
+        return $this;
+    }
+
     public function setBackwardDeliveryData(BackwardDeliveryData $backwardDeliveryData): self
     {
         $this->backwardDeliveryData[] = $backwardDeliveryData->toArray();
@@ -459,9 +469,11 @@ final class InternetDocument extends BaseModel
             'DateTime' => ['required', 'date', 'date_format:d.m.Y'],
             'CargoType' => ['required', 'string', new CargoTypeRule()],
             'VolumeGeneral' => ['nullable', 'numeric', 'min:0.0004'],
-            'Weight' => ['required', 'numeric', 'min:0.1'],
+            'Weight' => ['required_if:CargoType,Cargo', 'numeric', 'min:0.1'],
             'ServiceType' => ['required', 'string', new ServiceTypeRule()],
-            'SeatsAmount' => ['required', 'numeric', 'min:1'],
+            'SeatsAmount' => ['required_if:CargoType,Cargo', 'numeric', 'min:1'],
+            'OptionsSeat' => ['required_if:CargoType,Cargo', 'array'],
+            'CargoDetails' => ['required_if:CargoType,TiresWheels', 'array'],
             'Description' => ['required', 'string', 'max:50'],
             'Cost' => ['required', 'numeric', 'min:200'],
             'CitySender' => ['required', 'uuid'],
