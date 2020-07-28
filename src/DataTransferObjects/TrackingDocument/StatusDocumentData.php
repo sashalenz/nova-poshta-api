@@ -1,6 +1,6 @@
 <?php
 
-namespace Sashalenz\NovaPoshtaApi\DataTransferObjects\InternetDocument;
+namespace Sashalenz\NovaPoshtaApi\DataTransferObjects\TrackingDocument;
 
 use Sashalenz\NovaPoshtaApi\DataTransferObjects\DataTransferObject;
 use Carbon\Carbon;
@@ -21,6 +21,16 @@ class StatusDocumentData extends DataTransferObject
     public string $status;
     public int $statusCode;
     public string $refEW;
+    public string $refCityRecipient;
+    public string $cityRecipient;
+    public string $warehouseRecipientRef;
+    public string $warehouseRecipient;
+    public ?int $lastCreatedOnTheBasisNumber = null;
+    public ?string $lastCreatedOnTheBasisDocumentType = null;
+    public ?string $lastCreatedOnTheBasisPayerType = null;
+    public ?Carbon $lastCreatedOnTheBasisDateTime = null;
+    public ?string $lastTransactionStatusGM = null;
+    public ?Carbon $lastTransactionDateTimeGM = null;
 
     public static function fromArray($array)
     {
@@ -38,7 +48,17 @@ class StatusDocumentData extends DataTransferObject
             'seatsAmount' => array_key_exists('SeatsAmount', $array) ? (int) $array['SeatsAmount'] : null,
             'status' => $array['Status'],
             'statusCode' => (int) $array['StatusCode'],
-            'refEW' => $array['RefEW']
+            'refEW' => $array['RefEW'],
+            'refCityRecipient' => $array['RefCityRecipient'],
+            'cityRecipient' => $array['CityRecipient'],
+            'warehouseRecipientRef' => $array['WarehouseRecipientRef'],
+            'warehouseRecipient' => $array['WarehouseRecipient'],
+            'lastCreatedOnTheBasisNumber' => array_key_exists('LastCreatedOnTheBasisNumber', $array) ? (int) $array['LastCreatedOnTheBasisNumber'] : null,
+            'lastCreatedOnTheBasisDocumentType' => $array['LastCreatedOnTheBasisDocumentType'],
+            'lastCreatedOnTheBasisPayerType' => $array['LastCreatedOnTheBasisPayerType'],
+            'lastCreatedOnTheBasisDateTime' => array_key_exists('LastCreatedOnTheBasisDateTime', $array) && $array['LastCreatedOnTheBasisDateTime'] !== '' ? Carbon::createFromFormat('Y-m-d H:i:s', $array['LastCreatedOnTheBasisDateTime']) : null,
+            'lastTransactionStatusGM' => $array['LastTransactionStatusGM'],
+            'lastTransactionDateTimeGM' => array_key_exists('LastTransactionDateTimeGM', $array) && $array['LastTransactionDateTimeGM'] !== '' ? Carbon::createFromFormat('Y-m-d H:i:s', $array['LastTransactionDateTimeGM']) : null
         ]);
     }
 }
