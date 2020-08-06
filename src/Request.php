@@ -74,7 +74,7 @@ class Request
             info($response['warnings']);
         }
 
-//        info($response['data']);
+        info(print_r($response['data'],1));
 
         return collect($response['data']);
     }

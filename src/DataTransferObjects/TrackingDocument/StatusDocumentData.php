@@ -25,7 +25,7 @@ class StatusDocumentData extends DataTransferObject
     public string $cityRecipient;
     public string $warehouseRecipientRef;
     public string $warehouseRecipient;
-    public ?int $lastCreatedOnTheBasisNumber = null;
+    public ?string $lastCreatedOnTheBasisNumber = null;
     public ?string $lastCreatedOnTheBasisDocumentType = null;
     public ?string $lastCreatedOnTheBasisPayerType = null;
     public ?Carbon $lastCreatedOnTheBasisDateTime = null;
@@ -50,14 +50,14 @@ class StatusDocumentData extends DataTransferObject
             'statusCode' => (int) $array['StatusCode'],
             'refEW' => $array['RefEW'],
             'refCityRecipient' => $array['RefCityRecipient'],
-            'cityRecipient' => $array['CityRecipient'],
-            'warehouseRecipientRef' => $array['WarehouseRecipientRef'],
-            'warehouseRecipient' => $array['WarehouseRecipient'],
-            'lastCreatedOnTheBasisNumber' => array_key_exists('LastCreatedOnTheBasisNumber', $array) ? (int) $array['LastCreatedOnTheBasisNumber'] : null,
-            'lastCreatedOnTheBasisDocumentType' => $array['LastCreatedOnTheBasisDocumentType'],
-            'lastCreatedOnTheBasisPayerType' => $array['LastCreatedOnTheBasisPayerType'],
+            'cityRecipient' => $array['CityRecipient'] ?? '',
+            'warehouseRecipientRef' => $array['WarehouseRecipientRef'] ?? '',
+            'warehouseRecipient' => $array['WarehouseRecipient'] ?? '',
+            'lastCreatedOnTheBasisNumber' => $array['LastCreatedOnTheBasisNumber'] ?? null,
+            'lastCreatedOnTheBasisDocumentType' => $array['LastCreatedOnTheBasisDocumentType'] ?? null,
+            'lastCreatedOnTheBasisPayerType' => $array['LastCreatedOnTheBasisPayerType'] ?? null,
             'lastCreatedOnTheBasisDateTime' => array_key_exists('LastCreatedOnTheBasisDateTime', $array) && $array['LastCreatedOnTheBasisDateTime'] !== '' ? Carbon::createFromFormat('Y-m-d H:i:s', $array['LastCreatedOnTheBasisDateTime']) : null,
-            'lastTransactionStatusGM' => $array['LastTransactionStatusGM'],
+            'lastTransactionStatusGM' => $array['LastTransactionStatusGM'] ?? null,
             'lastTransactionDateTimeGM' => array_key_exists('LastTransactionDateTimeGM', $array) && $array['LastTransactionDateTimeGM'] !== '' ? Carbon::createFromFormat('Y-m-d H:i:s', $array['LastTransactionDateTimeGM']) : null
         ]);
     }
