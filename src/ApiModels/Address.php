@@ -4,6 +4,7 @@ namespace Sashalenz\NovaPoshtaApi\ApiModels;
 
 use Sashalenz\NovaPoshtaApi\BaseModel;
 use Sashalenz\NovaPoshtaApi\DataTransferObjects\Address\AddressData;
+use Sashalenz\NovaPoshtaApi\DataTransferObjects\Address\AreaData;
 use Sashalenz\NovaPoshtaApi\DataTransferObjects\Address\CityData;
 use Sashalenz\NovaPoshtaApi\DataTransferObjects\Address\SettlementData;
 use Sashalenz\NovaPoshtaApi\DataTransferObjects\Address\SettlementStreetData;
@@ -203,6 +204,20 @@ final class Address extends BaseModel
             ->first();
 
         return SettlementStreetData::arrayFromArray($response['Addresses']);
+    }
+
+    /**
+     * @return Collection
+     * @throws NovaPoshtaException
+     */
+    public function getAreas() : Collection
+    {
+        $response = $this
+            ->setCalledMethod(__FUNCTION__)
+            ->request()
+            ->toArray();
+
+        return AreaData::arrayFromArray($response);
     }
 
     /**
