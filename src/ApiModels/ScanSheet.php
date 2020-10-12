@@ -15,50 +15,30 @@ final class ScanSheet extends BaseModel
     public ?array $scanSheetRefs = [];
     public int $date;
 
-    /**
-     * @param string $ref
-     * @return $this
-     */
     public function setRef(string $ref): self
     {
         $this->ref = $ref;
         return $this;
     }
 
-    /**
-     * @param string $documentRef
-     * @return $this
-     */
     public function addDocumentRef(string $documentRef): self
     {
         $this->documentRefs[] = $documentRef;
         return $this;
     }
 
-    /**
-     * @param array $documentRefs
-     * @return $this
-     */
     public function addDocumentRefs(array $documentRefs): self
     {
         $this->documentRefs = array_merge($this->documentRefs, $documentRefs);
         return $this;
     }
 
-    /**
-     * @param string $scanSheetRef
-     * @return $this
-     */
     public function addScanSheetRef(string $scanSheetRef): self
     {
         $this->scanSheetRefs[] = $scanSheetRef;
         return $this;
     }
 
-    /**
-     * @param int $date
-     * @return $this
-     */
     public function setDate(int $date): self
     {
         $this->date = $date;

@@ -28,60 +28,36 @@ final class Common extends BaseModel
     public string $typeOfPacking;
     public string $findByString;
 
-    /**
-     * @param string $recipientCityRef
-     * @return $this
-     */
     public function setRecipientCityRef(string $recipientCityRef): self
     {
         $this->recipientCityRef = $recipientCityRef;
         return $this;
     }
 
-    /**
-     * @param string $length
-     * @return $this
-     */
     public function setLength(string $length): self
     {
         $this->length = $length;
         return $this;
     }
 
-    /**
-     * @param string $width
-     * @return $this
-     */
     public function setWidth(string $width): self
     {
         $this->width = $width;
         return $this;
     }
 
-    /**
-     * @param string $height
-     * @return $this
-     */
     public function setHeight(string $height): self
     {
         $this->height = $height;
         return $this;
     }
 
-    /**
-     * @param string $typeOfPacking
-     * @return $this
-     */
     public function setTypeOfPacking(string $typeOfPacking): self
     {
         $this->typeOfPacking = $typeOfPacking;
         return $this;
     }
 
-    /**
-     * @param string $findByString
-     * @return $this
-     */
     public function setFindByString(string $findByString): self
     {
         $this->findByString = $findByString;

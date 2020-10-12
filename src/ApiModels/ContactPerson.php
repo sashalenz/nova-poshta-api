@@ -16,80 +16,45 @@ final class ContactPerson extends BaseModel
     public ?string $middleName = null;
     public ?string $email = null;
 
-    /**
-     * @param string $ref
-     * @return $this
-     */
     private function setRef(string $ref) : self
     {
         $this->ref = $ref;
-
         return $this;
     }
 
-    /**
-     * @param string $counterpartyRef
-     * @return $this
-     */
     public function setCounterpartyRef(string $counterpartyRef) : self
     {
         $this->counterpartyRef = $counterpartyRef;
-
         return $this;
     }
 
-    /**
-     * @param string $phone
-     * @return $this
-     */
     public function setPhone(string $phone) : self
     {
         $this->phone = $phone;
-
         return $this;
     }
 
-    /**
-     * @param string $firstName
-     * @return $this
-     */
     public function setFirstName(string $firstName) : self
     {
         $this->firstName = $firstName;
-
         return $this;
     }
 
-    /**
-     * @param string $lastName
-     * @return $this
-     */
     public function setLastName(string $lastName) : self
     {
         $this->lastName = $lastName;
-
         return $this;
     }
 
-    /**
-     * @param string $middleName
-     * @return $this
-     */
     public function setMiddleName(string $middleName) : self
     {
         $this->middleName = $middleName;
-
         return $this;
     }
 
-    /**
-     * @param string $email
-     * @return $this
-     */
     public function setEmail(string $email) : self
     {
         $this->email = $email;
-
         return $this;
     }
 

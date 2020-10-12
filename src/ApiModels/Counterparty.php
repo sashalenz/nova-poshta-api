@@ -25,135 +25,75 @@ final class Counterparty extends BaseModel
     public ?string $ownershipForm = null;
     public ?int $EDRPOU = null;
 
-    /**
-     * @param string $page
-     * @return $this
-     */
     public function setPage(string $page) : self
     {
         $this->page = $page;
-
         return $this;
     }
 
-    /**
-     * @param string $ref
-     * @return $this
-     */
     private function setRef(string $ref) : self
     {
         $this->ref = $ref;
-
         return $this;
     }
 
-    /**
-     * @param string $counterpartyType
-     * @return $this
-     */
     public function setCounterpartyType(string $counterpartyType) : self
     {
         $this->counterpartyType = $counterpartyType;
-
         return $this;
     }
 
-    /**
-     * @param string $counterpartyProperty
-     * @return $this
-     */
     public function setCounterpartyProperty(string $counterpartyProperty) : self
     {
         $this->counterpartyProperty = $counterpartyProperty;
-
         return $this;
     }
 
-    /**
-     * @param string $phone
-     * @return $this
-     */
     public function setPhone(string $phone) : self
     {
         $this->phone = $phone;
-
         return $this;
     }
 
-    /**
-     * @param string $firstName
-     * @return $this
-     */
     public function setFirstName(string $firstName) : self
     {
         $this->firstName = $firstName;
-
         return $this;
     }
 
-    /**
-     * @param string $lastName
-     * @return $this
-     */
     public function setLastName(string $lastName) : self
     {
         $this->lastName = $lastName;
-
         return $this;
     }
 
-    /**
-     * @param string|null $middleName
-     * @return $this
-     */
     public function setMiddleName(?string $middleName = null) : self
     {
         $this->middleName = $middleName;
-
         return $this;
     }
 
-    /**
-     * @param string $email
-     * @return $this
-     */
     public function setEmail(string $email) : self
     {
         $this->email = $email;
-
         return $this;
     }
 
-    /**
-     * @param string $ownershipForm
-     * @return $this
-     */
     public function setOwnershipForm(string $ownershipForm) : self
     {
         $this->ownershipForm = $ownershipForm;
-
         return $this;
     }
 
-    /**
-     * @param string $cityRef
-     * @return $this
-     */
     public function setCityRef(string $cityRef) : self
     {
         $this->cityRef = $cityRef;
-
         return $this;
     }
 
-    /**
-     * @param int $EDRPOU
-     * @return $this
-     */
     public function setEDRPOU(int $EDRPOU) : self
     {
         $this->EDRPOU = $EDRPOU;
-
         return $this;
     }
 

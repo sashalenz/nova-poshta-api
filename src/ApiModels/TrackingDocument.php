@@ -11,22 +11,12 @@ final class TrackingDocument extends BaseModel
 {
     public array $documents;
 
-    /**
-     * @param array $documents
-     * @return $this
-     */
     public function setDocuments(array $documents) : self
     {
         $this->documents = $documents;
-
         return $this;
     }
 
-    /**
-     * @param string $documentNumber
-     * @param string $phone
-     * @return $this
-     */
     public function addDocument(string $documentNumber, string $phone = '') : self
     {
         $this->documents[] = [

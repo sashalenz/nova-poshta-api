@@ -25,100 +25,60 @@ final class AdditionalService extends BaseModel
     public string $orderType;
     public string $returnAddressRef;
 
-    /**
-     * @param string $ref
-     * @return $this
-     */
     public function setRef(string $ref): self
     {
         $this->ref = $ref;
         return $this;
     }
 
-    /**
-     * @param string $number
-     * @return $this
-     */
     public function setNumber(string $number): self
     {
         $this->number = $number;
         return $this;
     }
 
-    /**
-     * @param string $reasonRef
-     * @return $this
-     */
     public function setReasonRef(string $reasonRef): self
     {
         $this->reasonRef = $reasonRef;
         return $this;
     }
 
-    /**
-     * @param string $intDocNumber
-     * @return $this
-     */
     public function setIntDocNumber(string $intDocNumber): self
     {
         $this->intDocNumber = $intDocNumber;
         return $this;
     }
 
-    /**
-     * @param string $paymentMethod
-     * @return $this
-     */
     public function setPaymentMethod(string $paymentMethod): self
     {
         $this->paymentMethod = $paymentMethod;
         return $this;
     }
 
-    /**
-     * @param string $reason
-     * @return $this
-     */
     public function setReason(string $reason): self
     {
         $this->reason = $reason;
         return $this;
     }
 
-    /**
-     * @param string $subtypeReason
-     * @return $this
-     */
     public function setSubtypeReason(string $subtypeReason): self
     {
         $this->subtypeReason = $subtypeReason;
         return $this;
     }
 
-    /**
-     * @param string $note
-     * @return $this
-     */
     public function setNote(string $note): self
     {
         $this->note = $note;
         return $this;
     }
 
-    /**
-     * @param string $orderType
-     * @return $this
-     */
     private function setOrderType(string $orderType): self
     {
         $this->orderType = $orderType;
         return $this;
     }
 
-    /**
-     * @param string $returnAddressRef
-     * @return $this
-     */
     public function setReturnAddressRef(string $returnAddressRef): self
     {
         $this->returnAddressRef = $returnAddressRef;

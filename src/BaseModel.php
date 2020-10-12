@@ -70,10 +70,14 @@ abstract class BaseModel
         return $this;
     }
 
-    public function when(bool $condition, Closure $callback) : self
+    public function when(bool $condition, Closure $callback, ?Closure $closure = null) : self
     {
         if ($condition) {
             return $callback($this) ?: $this;
+        }
+
+        if (!is_null($closure)) {
+            return $closure($this) ?: $this;
         }
 
         return $this;

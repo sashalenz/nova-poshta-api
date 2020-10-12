@@ -28,136 +28,75 @@ final class Address extends BaseModel
     public string $note;
     public string $findByString;
 
-
-    /**
-     * @param int $limit
-     * @return $this
-     */
     public function setLimit(int $limit) : self
     {
         $this->limit = $limit;
-
         return $this;
     }
 
-    /**
-     * @param string $ref
-     * @return $this
-     */
     public function setRef(string $ref) : self
     {
         $this->ref = $ref;
-
         return $this;
     }
 
-    /**
-     * @param string $name
-     * @return $this
-     */
     private function setCityName(string $name) : self
     {
         $this->cityName = $name;
-
         return $this;
     }
 
-    /**
-     * @param string $settlementRef
-     * @return $this
-     */
     public function setSettlementRef(string $settlementRef) : self
     {
         $this->settlementRef = $settlementRef;
-
         return $this;
     }
 
-    /**
-     * @param string $streetName
-     * @return $this
-     */
     private function setStreetName(string $streetName) : self
     {
         $this->streetName = $streetName;
-
         return $this;
     }
 
-    /**
-     * @param string $streetRef
-     * @return $this
-     */
     public function setStreetRef(string $streetRef) : self
     {
         $this->streetRef = $streetRef;
-
         return $this;
     }
 
-    /**
-     * @param string $counterpartyRef
-     * @return $this
-     */
     public function setCounterpartyRef(string $counterpartyRef) : self
     {
         $this->counterpartyRef = $counterpartyRef;
-
         return $this;
     }
 
-    /**
-     * @param string $buildingNumber
-     * @return $this
-     */
     public function setBuildingNumber(string $buildingNumber) : self
     {
         $this->buildingNumber = $buildingNumber;
-
         return $this;
     }
 
-    /**
-     * @param string $flat
-     * @return $this
-     */
     public function setFlat(string $flat) : self
     {
         $this->flat = $flat;
-
         return $this;
     }
 
-    /**
-     * @param string $note
-     * @return $this
-     */
     public function setNote(string $note) : self
     {
         $this->note = $note;
-
         return $this;
     }
 
-    /**
-     * @param string $cityRef
-     * @return $this
-     */
     public function setCityRef(string $cityRef) : self
     {
         $this->cityRef = $cityRef;
-
         return $this;
     }
 
-    /**
-     * @param string $findByString
-     * @return $this
-     */
     public function setFindByString(string $findByString) : self
     {
         $this->findByString = $findByString;
-
         return $this;
     }
 
