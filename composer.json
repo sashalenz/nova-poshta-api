@@ -1,0 +1,58 @@
+{
+  "name": "sashalenz/nova-poshta-api",
+  "description": "Nova Poshta API SDK for Laravel",
+  "homepage": "https://github.com/sashalenz/nova-poshta-api",
+  "keywords": [
+    "novaposhta.ua",
+    "nova poshta",
+    "api",
+    "laravel"
+  ],
+  "authors": [
+    {
+      "name": "Petrovskyi Oleksandr",
+      "email": "sashalenz@gmail.com",
+      "homepage": "https://github.com/sashalenz",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": "^8.1",
+    "illuminate/config": "^10.0",
+    "illuminate/http": "^10.0",
+    "illuminate/support": "^10.0",
+    "spatie/laravel-data": "^3.1",
+    "spatie/laravel-package-tools": "^1.14"
+  },
+  "require-dev": {
+    "roave/security-advisories": "dev-latest",
+    "laravel/pint": "^1.0",
+    "nunomaduro/collision": "^7.9",
+    "orchestra/testbench": "^8.0",
+    "pestphp/pest": "^2.0",
+    "pestphp/pest-plugin-arch": "^2.0",
+    "pestphp/pest-plugin-laravel": "^2.0",
+    "spatie/laravel-ray": "^1.26"
+  },
+  "autoload": {
+    "psr-4": {
+      "Sashalenz\\NovaPoshtaApi\\": "src"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Sashalenz\\NovaPoshtaApi\\NovaPoshtaApiServiceProvider"
+      ]
+    }
+  },
+  "license": "MIT",
+  "config": {
+    "sort-packages": true,
+    "allow-plugins": {
+      "pestphp/pest-plugin": true
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}
