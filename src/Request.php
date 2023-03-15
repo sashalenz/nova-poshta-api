@@ -48,8 +48,6 @@ final class Request
             throw new NovaPoshtaException('Request error. '.$e->getMessage());
         }
 
-        ray($response);
-
         if ($response->get('errors')) {
             throw new NovaPoshtaException('API error. '.$response->value('errors'));
         }
@@ -72,6 +70,16 @@ final class Request
 
     private function getCacheKey(): string
     {
-        return $this->modelName.'_'.$this->calledMethod.':'.implode('_', $this->methodProperties);
+        return collect([
+            $this->modelName,
+            $this->calledMethod,
+        ])
+            ->when(
+                ! is_null($this->methodProperties),
+                fn ($collection) => $collection->push(
+                    base64_encode(serialize($this->methodProperties))
+                )
+            )
+            ->implode('_');
     }
 }

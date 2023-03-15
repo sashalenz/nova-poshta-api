@@ -7,12 +7,12 @@ use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Mappers\StudlyCaseMapper;
 
 #[MapInputName(StudlyCaseMapper::class)]
-final class PalletData extends Data
+final class OwnershipFormData extends Data
 {
     public function __construct(
         public string $ref,
         public string $description,
-        public float $weight
+        public string $fullName
     ) {
     }
 }

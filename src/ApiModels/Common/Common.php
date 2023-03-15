@@ -10,6 +10,7 @@ use Sashalenz\NovaPoshtaApi\ApiModels\Common\ResponseData\BackwardDeliveryCargoT
 use Sashalenz\NovaPoshtaApi\ApiModels\Common\ResponseData\CargoDescriptionData;
 use Sashalenz\NovaPoshtaApi\ApiModels\Common\ResponseData\CargoTypeData;
 use Sashalenz\NovaPoshtaApi\ApiModels\Common\ResponseData\MessageCodeTextData;
+use Sashalenz\NovaPoshtaApi\ApiModels\Common\ResponseData\OwnershipFormData;
 use Sashalenz\NovaPoshtaApi\ApiModels\Common\ResponseData\PackData;
 use Sashalenz\NovaPoshtaApi\ApiModels\Common\ResponseData\PalletData;
 use Sashalenz\NovaPoshtaApi\ApiModels\Common\ResponseData\TimeIntervalData;
@@ -90,6 +91,16 @@ final class Common extends BaseModel
         return $this
             ->calledMethod(__FUNCTION__)
             ->toCollection(TireWheelData::class);
+    }
+
+    /**
+     * @throws NovaPoshtaException
+     */
+    public function getOwnershipFormsList(): DataCollection
+    {
+        return $this
+            ->calledMethod(__FUNCTION__)
+            ->toCollection(OwnershipFormData::class);
     }
 
     /**
