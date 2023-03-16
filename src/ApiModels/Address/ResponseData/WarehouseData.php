@@ -51,7 +51,7 @@ final class WarehouseData extends Data
         public bool $workInMobileAwis,
         public bool $denyToSelect,
         public bool $canGetMoneyTransfer,
-        public bool $onlyReceivingParcel,
+        public ?bool $onlyReceivingParcel,
         public string $postMachineType,
         public string $postalCodeUA,
         public string $warehouseIndex,

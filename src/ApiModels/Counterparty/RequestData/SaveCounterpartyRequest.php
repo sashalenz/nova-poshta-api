@@ -22,13 +22,13 @@ final class SaveCounterpartyRequest extends Data
         #[Max(36), StringType]
         public string $firstName,
         #[Max(36), StringType]
-        public string $middleName,
+        public Optional|string $middleName,
         #[Max(36), StringType]
-        public string $lastName,
+        public Optional|string $lastName,
         #[Max(36), StringType]
         public string $phone,
         #[Max(36), Email]
-        public string $email,
+        public Optional|string $email,
         #[Enum(CounterpartyType::class)]
         public CounterpartyType $counterpartyType,
         #[Enum(CounterpartyProperty::class)]

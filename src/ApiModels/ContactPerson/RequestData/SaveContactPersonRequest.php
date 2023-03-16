@@ -8,6 +8,7 @@ use Spatie\LaravelData\Attributes\Validation\StringType;
 use Spatie\LaravelData\Attributes\Validation\Uuid;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Mappers\StudlyCaseMapper;
+use Spatie\LaravelData\Optional;
 
 #[MapOutputName(StudlyCaseMapper::class)]
 final class SaveContactPersonRequest extends Data
@@ -20,7 +21,7 @@ final class SaveContactPersonRequest extends Data
         #[Max(36), StringType]
         public string $lastName,
         #[Max(36), StringType]
-        public string $middleName,
+        public Optional|string $middleName,
         #[Max(36), StringType]
         public string $phone,
     ) {

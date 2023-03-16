@@ -17,7 +17,7 @@ final class AddressRequest extends Data
         #[Uuid]
         public string $streetRef,
         public string $buildingNumber,
-        public string $flat,
+        public Optional|string $flat,
         public Optional|string $note,
     ) {
     }
