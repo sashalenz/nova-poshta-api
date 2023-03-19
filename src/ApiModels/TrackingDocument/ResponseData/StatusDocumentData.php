@@ -25,7 +25,7 @@ final class StatusDocumentData extends Data
         public ServiceType $serviceType,
         public string $undeliveryReasons,
         public string $recipientFullName,
-        public float $factualWeight,
+        public string $factualWeight,
         public string $marketplacePartnerToken,
         public string $counterpartySenderDescription,
         public string $internationalDeliveryType,

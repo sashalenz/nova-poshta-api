@@ -35,13 +35,13 @@ class SaveInternetDocumentRequest extends Data
         #[WithCast(EnumCast::class)]
         public ServiceType $serviceType,
 
-        public string $volumeGeneral,
-        public string $weight,
-        public int $seatsAmount,
+        public Optional|string $volumeGeneral,
+        public Optional|string $weight,
+        public Optional|int $seatsAmount,
         #[DataCollectionOf(OptionSeatData::class)]
-        public DataCollection $optionsSeat,
+        public Optional|DataCollection $optionsSeat,
         #[DataCollectionOf(CargoDetailData::class)]
-        public DataCollection $cargoDetails,
+        public Optional|DataCollection $cargoDetails,
 
         public string $description,
         public string $cost,

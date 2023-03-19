@@ -10,11 +10,4 @@ enum ServiceType: string
     case WAREHOUSE_DOORS = 'WarehouseDoors';
     case WAREHOUSE_POSTOMAT = 'WarehousePostomat';
     case WAREHOUSE_WAREHOUSE = 'WarehouseWarehouse';
-
-    public static function make(string $sender, string $recipient): self
-    {
-        $string = implode('_', [$sender, $recipient]);
-
-        return self::$string;
-    }
 }

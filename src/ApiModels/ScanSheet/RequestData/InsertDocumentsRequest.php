@@ -22,7 +22,7 @@ final class InsertDocumentsRequest extends Data
         #[Uuid, Nullable]
         public Optional|string $ref,
         #[WithTransformer(CarbonInterfaceTransformer::class, format: 'd.m.Y')]
-        public Carbon $date,
+        public Optional|Carbon $date,
     ) {
     }
 }

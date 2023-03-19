@@ -40,7 +40,6 @@ final class Request
                     'modelName' => $this->modelName,
                     'calledMethod' => $this->calledMethod,
                     'methodProperties' => $this->methodProperties,
-                    'System' => 'NovaPoshtaApi',
                 ])
                 ->throw()
                 ->collect();
@@ -48,8 +47,8 @@ final class Request
             throw new NovaPoshtaException('Request error. '.$e->getMessage());
         }
 
-        if ($response->get('errors')) {
-            throw new NovaPoshtaException('API error. '.$response->value('errors'));
+        if ($errors = $response->get('errors') && count($errors)) {
+            throw new NovaPoshtaException('API error. '.$errors[0]);
         }
 
         if ($response->get('success') !== true) {
