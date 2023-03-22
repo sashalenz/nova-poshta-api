@@ -47,7 +47,7 @@ final class Request
             throw new NovaPoshtaException('Request error. '.$e->getMessage());
         }
 
-        if ($errors = $response->get('errors') && count($errors)) {
+        if ($errors = $response->get('errors')) {
             throw new NovaPoshtaException('API error. '.$errors[0]);
         }
 

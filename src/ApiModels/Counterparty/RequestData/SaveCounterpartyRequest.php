@@ -20,13 +20,13 @@ final class SaveCounterpartyRequest extends Data
 {
     public function __construct(
         #[Max(36), StringType]
-        public Optional|sstring $firstName,
+        public Optional|string $firstName,
         #[Max(36), StringType]
         public Optional|string $middleName,
         #[Max(36), StringType]
         public Optional|string $lastName,
         #[Max(36), StringType]
-        public Optional|sstring $phone,
+        public Optional|string $phone,
         #[Max(36), Email]
         public Optional|string $email,
         #[Enum(CounterpartyType::class)]

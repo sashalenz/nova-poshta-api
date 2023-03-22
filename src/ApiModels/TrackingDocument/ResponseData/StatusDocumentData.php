@@ -8,8 +8,10 @@ use Sashalenz\NovaPoshtaApi\Enums\CargoType;
 use Sashalenz\NovaPoshtaApi\Enums\PayerType;
 use Sashalenz\NovaPoshtaApi\Enums\PaymentMethod;
 use Sashalenz\NovaPoshtaApi\Enums\ServiceType;
+use Sashalenz\NovaPoshtaApi\Transformers\CarbonInterfaceTransformer;
 use Spatie\LaravelData\Attributes\MapInputName;
 use Spatie\LaravelData\Attributes\WithCast;
+use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Casts\EnumCast;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Mappers\StudlyCaseMapper;
@@ -34,7 +36,7 @@ final class StatusDocumentData extends Data
         #[WithCast(EnumCast::class)]
         public PayerType $payerType,
         public int $seatsAmount,
-        #[WithCast(CarbonInterfaceCast::class, format: 'd-m-Y H:i:s')]
+        #[WithCast(CarbonInterfaceCast::class, format: 'd-m-Y H:i:s'), WithTransformer(CarbonInterfaceTransformer::class, format: 'd-m-Y H:i:s')]
         public ?Carbon $scheduledDeliveryDate,
         public float $documentCost,
         public string $cardMaskedNumber,
@@ -48,23 +50,24 @@ final class StatusDocumentData extends Data
         public PaymentMethod $paymentMethod,
         public string $adjustedDate,
         public string $number,
-        #[WithCast(CarbonInterfaceCast::class, format: 'Y-m-d H:i:s')]
+        #[WithCast(CarbonInterfaceCast::class, format: 'Y-m-d H:i:s'), WithTransformer(CarbonInterfaceTransformer::class, format: 'd-m-Y H:i:s')]
         public ?Carbon $trackingUpdateDate,
         public string $calculatedWeight,
         public string $warehouseRecipient,
         public string $warehouseSender,
-        #[WithCast(CarbonInterfaceCast::class, format: 'd-m-Y H:i:s')]
+        #[WithCast(CarbonInterfaceCast::class, format: 'd-m-Y H:i:s'), WithTransformer(CarbonInterfaceTransformer::class, format: 'd-m-Y H:i:s')]
         public ?Carbon $dateCreated,
-        #[WithCast(CarbonInterfaceCast::class, format: 'H:i d.m.Y')]
+        #[WithCast(CarbonInterfaceCast::class, format: 'H:i d.m.Y'), WithTransformer(CarbonInterfaceTransformer::class, format: 'd-m-Y H:i')]
         public ?Carbon $dateScan,
         public Optional|string $dateReturnCargo,
         public string $dateMoving,
-        #[WithCast(CarbonInterfaceCast::class, format: 'Y-m-d')]
+        #[WithCast(CarbonInterfaceCast::class, format: 'Y-m-d'), WithTransformer(CarbonInterfaceTransformer::class, format: 'd-m-Y')]
         public ?Carbon $dateFirstDayStorage,
-        #[WithCast(CarbonInterfaceCast::class, format: 'Y-m-d H:i:s')]
+        #[WithCast(CarbonInterfaceCast::class, format: 'Y-m-d H:i:s'), WithTransformer(CarbonInterfaceTransformer::class, format: 'd-m-Y H:i:s')]
         public ?Carbon $datePayedKeeping,
         public string $recipientAddress,
-        public string $recipientDateTime,
+        #[WithCast(CarbonInterfaceCast::class, format: 'd-m-Y H:i:s'), WithTransformer(CarbonInterfaceTransformer::class, format: 'd-m-Y H:i:s')]
+        public ?Carbon $recipientDateTime,
         public string $refCityRecipient,
         public string $refCitySender,
         public string $refSettlementRecipient,
@@ -76,7 +79,7 @@ final class StatusDocumentData extends Data
         public string $cargoDescriptionString,
         public string $announcedPrice,
         public string $additionalInformationEW,
-        #[WithCast(CarbonInterfaceCast::class, format: 'Y-m-d H:i:s')]
+        #[WithCast(CarbonInterfaceCast::class, format: 'Y-m-d H:i:s'), WithTransformer(CarbonInterfaceTransformer::class, format: 'd-m-Y H:i:s')]
         public ?Carbon $actualDeliveryDate,
         public int $statusCode,
         public bool $postomatV3CellReservationNumber,
@@ -87,10 +90,13 @@ final class StatusDocumentData extends Data
         public string $checkWeightMethod,
         public string $ownerDocumentNumber,
         public string $lastCreatedOnTheBasisNumber,
-        public string $lastCreatedOnTheBasisDateTime,
-        public string $lastTransactionDateTimeGM,
+        #[WithCast(CarbonInterfaceCast::class, format: 'Y-m-d H:i:s'), WithTransformer(CarbonInterfaceTransformer::class, format: 'd-m-Y H:i:s')]
+        public ?Carbon $lastCreatedOnTheBasisDateTime,
+        #[WithCast(CarbonInterfaceCast::class, format: 'Y-m-d H:i:s'), WithTransformer(CarbonInterfaceTransformer::class, format: 'd-m-Y H:i:s')]
+        public ?Carbon $lastTransactionDateTimeGM,
         public string $paymentStatus,
-        public string $paymentStatusDate,
+        #[WithCast(CarbonInterfaceCast::class, format: 'Y-m-d H:i:s'), WithTransformer(CarbonInterfaceTransformer::class, format: 'd-m-Y H:i:s')]
+        public ?Carbon $paymentStatusDate,
         public string $lastAmountTransferGM,
         public string $lastAmountReceivedCommissionGM,
         public string $lastCreatedOnTheBasisPayerType,

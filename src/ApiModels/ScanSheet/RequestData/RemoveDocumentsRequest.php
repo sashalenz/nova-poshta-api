@@ -15,7 +15,7 @@ final class RemoveDocumentsRequest extends Data
 {
     public function __construct(
         #[ArrayType]
-        public array $documentRefs,
+        public Optional|array $documentRefs,
         #[Uuid, Nullable]
         public Optional|string $ref,
     ) {
