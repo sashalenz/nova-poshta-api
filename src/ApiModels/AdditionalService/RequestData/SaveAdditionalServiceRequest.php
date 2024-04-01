@@ -19,12 +19,15 @@ class SaveAdditionalServiceRequest extends Data
     public function __construct(
         public string $intDocNumber,
         #[WithCast(EnumCast::class)]
-        public PaymentMethod $paymentMethod,
-        public string $reason,
-        public string $subtypeReason,
+        public OrderType $orderType,
+
+        #[WithCast(EnumCast::class)]
+        public Optional|PaymentMethod $paymentMethod,
         public Optional|string $note,
 
 //        return
+        public Optional|string $reason,
+        public Optional|string $subtypeReason,
         public Optional|string $returnAddressRef,
 
 //        return to new address
@@ -43,14 +46,11 @@ class SaveAdditionalServiceRequest extends Data
         public Optional|string $recipientContactName,
         public Optional|string $recipientPhone,
         #[WithCast(EnumCast::class)]
-        public PayerType $payerType,
+        public Optional|PayerType $payerType,
 
 //        change ew
         public Optional|string $senderContactName,
         public Optional|string $senderPhone,
-
-        #[WithCast(EnumCast::class)]
-        public OrderType $orderType,
     ) {
     }
 }
