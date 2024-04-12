@@ -9,6 +9,7 @@ use Sashalenz\NovaPoshtaApi\Request;
 use Spatie\LaravelData\Contracts\BaseData;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\DataCollection;
+use Spatie\LaravelData\Resolvers\DataFromArrayResolver;
 use Spatie\LaravelData\Resolvers\DataFromSomethingResolver;
 
 abstract class BaseModel
@@ -99,10 +100,7 @@ abstract class BaseModel
         /** @var class-string<BaseData> $class */
         string $class
     ): BaseData {
-        return app(DataFromSomethingResolver::class)->execute(
-            $class,
-            $this->first()
-        );
+        return (new DataCollection($class, $this->request()))->first();
     }
 
     /**

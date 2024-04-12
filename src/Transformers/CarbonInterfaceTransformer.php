@@ -6,6 +6,7 @@ use DateTimeZone;
 use Illuminate\Support\Arr;
 use Spatie\LaravelData\Support\DataProperty;
 use Spatie\LaravelData\Transformers\Transformer;
+use Spatie\LaravelData\Support\Transformation\TransformationContext;
 
 class CarbonInterfaceTransformer implements Transformer
 {
@@ -15,7 +16,8 @@ class CarbonInterfaceTransformer implements Transformer
     ) {
     }
 
-    public function transform(DataProperty $property, mixed $value): string
+
+    public function transform(DataProperty $property, mixed $value, TransformationContext $context): mixed
     {
         [$format] = Arr::wrap($this->format ?? config('data.date_format'));
 

@@ -7,6 +7,7 @@ use DateTimeZone;
 use Spatie\LaravelData\Casts\Cast;
 use Spatie\LaravelData\Exceptions\CannotCastDate;
 use Spatie\LaravelData\Support\DataProperty;
+use Spatie\LaravelData\Support\Creation\CreationContext;
 
 final class CarbonInterfaceCast implements Cast
 {
@@ -20,7 +21,7 @@ final class CarbonInterfaceCast implements Cast
     /**
      * @throws CannotCastDate
      */
-    public function cast(DataProperty $property, mixed $value, array $context): ?Carbon
+    public function cast(DataProperty $property, mixed $value, array $properties, CreationContext $context): ?Carbon
     {
         $formats = collect($this->format ?? config('data.date_format'));
 
