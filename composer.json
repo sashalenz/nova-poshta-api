@@ -17,10 +17,10 @@
     }
   ],
   "require": {
-    "php": "^8.4",
-    "illuminate/config": "^11.0",
-    "illuminate/http": "^11.0",
-    "illuminate/support": "^11.0",
+    "php": "^8.2||^8.4",
+    "illuminate/config": "^10.0||^11.0",
+    "illuminate/http": "^10.0||^11.0",
+    "illuminate/support": "^10.0||^11.0",
     "spatie/laravel-data": "^4.4",
     "spatie/laravel-package-tools": "^1.16.4"
   },
