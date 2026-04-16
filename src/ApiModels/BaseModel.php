@@ -9,8 +9,6 @@ use Sashalenz\NovaPoshtaApi\Request;
 use Spatie\LaravelData\Contracts\BaseData;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\DataCollection;
-use Spatie\LaravelData\Resolvers\DataFromArrayResolver;
-use Spatie\LaravelData\Resolvers\DataFromSomethingResolver;
 
 abstract class BaseModel
 {
