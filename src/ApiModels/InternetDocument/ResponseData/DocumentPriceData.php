@@ -11,8 +11,8 @@ final class DocumentPriceData extends Data
 {
     public function __construct(
         public float $cost,
-        public float $costRedelivery,
-        public float $assessedCost,
+        public float $costRedelivery = 0.0,
+        public float $assessedCost = 0.0,
     ) {
     }
 }
