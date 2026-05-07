@@ -2,9 +2,11 @@
 
 namespace Sashalenz\NovaPoshtaApi;
 
+use Illuminate\Http\Client\ConnectionException;
 use Illuminate\Http\Client\RequestException;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
+use Sashalenz\NovaPoshtaApi\Exceptions\NovaPoshtaApiUnavailableException;
 use Sashalenz\NovaPoshtaApi\Exceptions\NovaPoshtaException;
 
 final class Request
@@ -43,8 +45,24 @@ final class Request
                 ])
                 ->throw()
                 ->collect();
+        } catch (ConnectionException $e) {
+            // Network-level failure — cURL connection reset, DNS error,
+            // timeout. NP itself is unreachable, the request never got
+            // a response. Surface as a separate type so callers and the
+            // error tracker can group "NP is down" away from the
+            // application-level NovaPoshtaException bucket.
+            throw new NovaPoshtaApiUnavailableException('NP API unreachable. '.$e->getMessage(), previous: $e);
         } catch (RequestException $e) {
-            throw new NovaPoshtaException('Request error. '.$e->getMessage());
+            // Got an HTTP response but not a 2xx. 5xx = NP's side is
+            // broken (still "unavailable"); 4xx = malformed request,
+            // keep the legacy behaviour and surface as the generic
+            // NovaPoshtaException so existing consumers don't have to
+            // rewrite their catches.
+            if ($e->response?->serverError()) {
+                throw new NovaPoshtaApiUnavailableException('NP API server error. '.$e->getMessage(), previous: $e);
+            }
+
+            throw new NovaPoshtaException('Request error. '.$e->getMessage(), previous: $e);
         }
 
         if ($errors = $response->get('errors')) {
