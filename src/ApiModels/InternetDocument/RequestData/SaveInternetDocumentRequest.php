@@ -55,13 +55,30 @@ class SaveInternetDocumentRequest extends Data
 
         public string $cityRecipient,
         public string $recipient,
-        public string $recipientAddress,
+        // Optional: omitted in the NewAddress flow, where the recipient
+        // address is built inline from the Recipient* settlement fields
+        // below instead of referencing a pre-created address Ref.
+        public Optional|string $recipientAddress,
         public string $contactRecipient,
         public string $recipientsPhone,
 
         public Optional|string $infoRegClientBarcodes,
         public Optional|bool $newAddress,
         public Optional|bool $cash2Card,
+
+        // NewAddress flow (доставка в населений пункт без попередньо
+        // створеної адреси). When `newAddress` is true these inline the
+        // recipient address. RecipientArea / RecipientAreaRegions /
+        // RecipientAddressName are NovaPoshta Refs (UUIDs), not names —
+        // Area/Region come from Address.searchSettlements, AddressName is
+        // the settlementStreetRef from Address.searchSettlementStreets.
+        public Optional|string $recipientCityName,
+        public Optional|string $recipientArea,
+        public Optional|string $recipientAreaRegions,
+        public Optional|string $recipientAddressName,
+        public Optional|string $recipientHouse,
+        public Optional|string $recipientFlat,
+        public Optional|string $settlementType,
 
         #[DataCollectionOf(BackwardDeliveryData::class)]
         public Optional|DataCollection $backwardDeliveryData,
