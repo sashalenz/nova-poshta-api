@@ -44,7 +44,7 @@ final class WarehouseData extends Data
         public string $warehouseStatusDate,
         public string $categoryOfWarehouse,
         public string $direct,
-        public string $regionCity,
+        public ?string $regionCity,
         public bool $warehouseForAgent,
         public bool $generatorEnabled,
         public int $maxDeclaredCost,
