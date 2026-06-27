@@ -49,6 +49,25 @@ final class ScanSheet extends BaseModel
     }
 
     /**
+     * Raw `data[0]` for insertDocuments — Ref/Number plus the per-document
+     * rejection details (`Data.Errors`/`Warnings`) and item-level Errors/Warnings
+     * that {@see InsertScanSheetData} discards. For callers that must surface
+     * NP's partial-failure reasons (e.g. building a registry / scan sheet where a
+     * subset of TTNs is rejected). Envelope-level errors still throw via Request.
+     *
+     * @return array<string, mixed>
+     *
+     * @throws NovaPoshtaException
+     */
+    public function insertDocumentsRaw(InsertDocumentsRequest $request): array
+    {
+        return $this
+            ->calledMethod('insertDocuments')
+            ->params($request)
+            ->first();
+    }
+
+    /**
      * @throws NovaPoshtaException
      */
     public function removeDocuments(RemoveDocumentsRequest $request): RemoveScanSheetData
