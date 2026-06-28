@@ -4,6 +4,7 @@ namespace Sashalenz\NovaPoshtaApi\ApiModels\TrackingDocument\ResponseData;
 
 use Carbon\Carbon;
 use Sashalenz\NovaPoshtaApi\Casts\CarbonInterfaceCast;
+use Sashalenz\NovaPoshtaApi\Casts\FloatCast;
 use Sashalenz\NovaPoshtaApi\Enums\CargoType;
 use Sashalenz\NovaPoshtaApi\Enums\PayerType;
 use Sashalenz\NovaPoshtaApi\Enums\PaymentMethod;
@@ -22,6 +23,7 @@ final class StatusDocumentData extends Data
 {
     public function __construct(
         public string $counterpartyRecipientDescription,
+        #[WithCast(FloatCast::class)]
         public float $documentWeight,
         #[WithCast(EnumCast::class)]
         public ServiceType $serviceType,
@@ -38,6 +40,7 @@ final class StatusDocumentData extends Data
         public string $seatsAmount,
         #[WithCast(CarbonInterfaceCast::class, format: 'd-m-Y H:i:s'), WithTransformer(CarbonInterfaceTransformer::class, format: 'd-m-Y H:i:s')]
         public ?Carbon $scheduledDeliveryDate,
+        #[WithCast(FloatCast::class)]
         public float $documentCost,
         public string $cardMaskedNumber,
         public string $ownerDocumentType,
@@ -86,6 +89,7 @@ final class StatusDocumentData extends Data
         public string $amountToPay,
         public string $amountPaid,
         public string $refEW,
+        #[WithCast(FloatCast::class)]
         public float $volumeWeight,
         public string $checkWeightMethod,
         public string $ownerDocumentNumber,
